@@ -1,0 +1,21 @@
+# Edirom Online – Release Workflow
+
+- `git checkout develop`
+- have a look into release-milestone and manange last issues and PRs
+- `git checkout -b rel/1.0.0-beta.[X] develop`
+- bump version in build.xml
+- commit version release branch
+- build `.xar` and test it.
+- `git checkout main`
+- `git merge --no-ff rel/1.0.0-beta.[X]` (release branch into main)
+- propably resolve merge conflicts and `git continue merge`(?)
+- `git tag` returns a list of all tags
+- `git tag -a v1.0.0-beta.[X] -m "v1.0.0-beta.[X]"`
+- probably `git tag` for review
+- `git push --follow-tags`
+- on github.com: Go to tag and klick `Release from Tag`
+- auto-generate the release description
+- upload `Edirom-Online-1.0.0-beta.[X].xar`
+- publish the release on Github
+- `git checkout develop`
+- `git merge --no-ff rel/1.0.0-beta.[X]` (release branch into develop)
